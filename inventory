@@ -1,1 +1,1 @@
-worker1 ansible_ssh_host=172.31.54.42 ansible_user=labsuser
+worker1 ansible_host=172.31.54.42 ansible_user=labsuser
