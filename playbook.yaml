@@ -57,6 +57,9 @@
             recurse: yes
 
       - name: download & unarchive Tomcat
+        become: true
+        become_user: root
+        become_method: sudo
         unarchive:
             mode: 0755
             owner: tomcat
