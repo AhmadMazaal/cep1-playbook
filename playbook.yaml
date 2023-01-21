@@ -7,7 +7,6 @@
         become_user: root
         become_method: sudo
         apt:
-            update_cache: yes
             name:
                 - git
                 - maven
