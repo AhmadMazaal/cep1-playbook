@@ -32,9 +32,12 @@
             chdir: /home/labsuser/tests/ansible-examples
 
       - name: Create a Tomcat User
-
+        become: true
+        become_user: root
+        become_method: sudo
         user:
             name: tomcat
+
       - name: Create a Tomcat Group
         become: true
         become_user: root
