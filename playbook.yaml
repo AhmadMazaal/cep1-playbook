@@ -1,5 +1,5 @@
 - name: Setting up
-  hosts: 172.31.54.42
+  hosts: worker1
   remote_user: labsuser
   tasks:
       - name: Install Git & Maven
