@@ -12,9 +12,13 @@
                 - maven
             state: present
 
-      - name: Create directory for file
+      - name: Delete old content & directory
         file:
-            path: "/home/labsuser/tests/ansible-examples"
+            state: absent
+            path: /home/labsuser/ahmad/ansible-examples
+      - name: Create directory for addressbook
+        file:
+            path: "/home/labsuser/ahmad/ansible-examples"
             state: directory
             recurse: yes
             owner: labsuser
@@ -24,12 +28,12 @@
       - name: Clone addressbook github repo
         ansible.builtin.git:
             repo: https://github.com/AhmadMazaal/addressbook.git
-            dest: /home/labsuser/tests/ansible-examples
+            dest: /home/labsuser/ahmad/ansible-examples
 
       - name: Package the project
         shell:
             cmd: mvn package
-            chdir: /home/labsuser/tests/ansible-examples
+            chdir: /home/labsuser/ahmad/ansible-examples
 
       - name: Create a Tomcat User
         become: true
@@ -95,7 +99,7 @@
         copy:
             owner: tomcat
             group: tomcat
-            src: /home/labsuser/tests/ansible-examples/target/addressbook-2.0.war
+            src: /home/labsuser/ahmad/ansible-examples/target/addressbook-2.0.war
             dest: /opt/tomcat/webapps
             remote_src: yes
             mode: 0755
