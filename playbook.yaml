@@ -12,7 +12,7 @@
                 - maven
             state: present
 
-      - name: Delete old content & directory
+      - name: Delete old content & directory to clone again
         file:
             state: absent
             path: /home/labsuser/ahmad/ansible-examples
